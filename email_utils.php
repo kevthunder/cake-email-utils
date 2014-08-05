@@ -71,6 +71,11 @@ class EmailUtilsComponent extends Object
 		return $res;
 	}
 	
+	function getEmailPart($address){
+		if(preg_match('/<([^>]+)>/',$address,$res)) return $res[1];
+		return $address;
+	}
+	
 	function defaultEmail($firstPart='info'){
 		return $firstPart.'@'.$this->get_base_server_name();
 	}
